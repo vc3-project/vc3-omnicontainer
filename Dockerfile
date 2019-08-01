@@ -9,6 +9,7 @@ RUN yum install epel-release -y
 RUN yum install python-pip openssl ansible python-paramiko supervisor minicondor python-devel nginx uwsgi uwsgi-plugin-python2 python-virtualenv -y
 RUN yum groupinstall "Development Tools" -y
 
+RUN pip install kubernetes
 
 # VC3 portal
 RUN mkdir -p /srv/www
