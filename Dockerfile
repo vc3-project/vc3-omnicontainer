@@ -35,7 +35,7 @@ RUN pushd /srv/www/vc3-web-env && \
    popd
 
 # OpenStack provisioning - remove when obsolete
-RUN yum install centos-release-openstack-ocata python-novaclient -y
+# RUN yum install centos-release-openstack-ocata python-novaclient -y
 
 RUN yum install vc3-infoservice pluginmanager openssl vc3-client vc3-master \
     pluginmanager vc3-playbooks autopyfactory vc3-factory-plugins \
