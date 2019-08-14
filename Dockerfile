@@ -4,7 +4,6 @@ COPY vc3.repo /etc/yum.repos.d/vc3.repo
 
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor
 RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo > /etc/yum.repos.d/htcondor-stable-rhel7.repo
-RUN yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
 RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && \
      chmod +x minio && \
     ./minio server /data
