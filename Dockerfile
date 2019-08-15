@@ -14,6 +14,7 @@ RUN yum groupinstall "Development Tools" -y
 RUN yum install yum-plugin-priorities -y
 RUN yum install globus-connect-server -y
 RUN yum -y install python-pip
+RUN pip install --upgrade pip
 RUN pip install jupyterlab
 RUN pip install reana-cluster
 RUN wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz && \
