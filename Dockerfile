@@ -4,12 +4,14 @@ COPY vc3.repo /etc/yum.repos.d/vc3.repo
 
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor
 RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo > /etc/yum.repos.d/htcondor-stable-rhel7.repo
+RUN yum install wget
 RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && \
-     chmod +x minio && \
-    ./minio server /data
+     chmod +x minio
 RUN  curl -LOs https://downloads.globus.org/toolkit/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm && \
      rpm --import https://downloads.globus.org/toolkit/gt6/stable/repo/rpm/RPM-GPG-KEY-Globus && \
      yum install globus-connect-server-repo-latest.noarch.rpm
+RUN  yum install cvmfs cvmfs-config-default
+
 
 RUN yum install epel-release -y
 RUN yum install python-pip openssl ansible python-paramiko supervisor minicondor python-devel nginx uwsgi uwsgi-plugin-python2 python-virtualenv -y
