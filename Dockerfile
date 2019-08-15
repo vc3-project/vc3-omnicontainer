@@ -7,7 +7,7 @@ RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel
 RUN  curl -LOs https://downloads.globus.org/toolkit/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm && \
      rpm --import https://downloads.globus.org/toolkit/gt6/stable/repo/rpm/RPM-GPG-KEY-Globus && \
      rpm -i globus-connect-server-repo-latest.noarch.rpm
-RUN  yum clean all &&\ 
+RUN  yum clean all && \ 
      yum install -y cvmfs cvmfs-config-default
 
 
