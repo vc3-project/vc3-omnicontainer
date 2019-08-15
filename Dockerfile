@@ -4,9 +4,6 @@ COPY vc3.repo /etc/yum.repos.d/vc3.repo
 
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor
 RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo > /etc/yum.repos.d/htcondor-stable-rhel7.repo
-RUN yum install wget
-RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && \
-     chmod +x minio
 RUN  curl -LOs https://downloads.globus.org/toolkit/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm && \
      rpm --import https://downloads.globus.org/toolkit/gt6/stable/repo/rpm/RPM-GPG-KEY-Globus && \
      yum install globus-connect-server-repo-latest.noarch.rpm
@@ -25,6 +22,9 @@ RUN wget http://www-eu.apache.org/dist/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2
      tar -xzf spark-2.2.1-bin-hadoop2.7.tgz && \
      export SPARK_HOME=$HOME/spark-2.2.1-bin-hadoop2.7 && \
      export PATH=$PATH:$SPARK_HOME/bin
+RUN pip install wget
+RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio && \
+     chmod +x minio
 
 RUN pip install kubernetes
 
