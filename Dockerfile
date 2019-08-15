@@ -7,14 +7,15 @@ RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel
 RUN  curl -LOs https://downloads.globus.org/toolkit/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm && \
      rpm --import https://downloads.globus.org/toolkit/gt6/stable/repo/rpm/RPM-GPG-KEY-Globus && \
      rpm -i globus-connect-server-repo-latest.noarch.rpm
-RUN  yum install cvmfs cvmfs-config-default
+RUN  yum clean all &&\ 
+     yum install -y cvmfs cvmfs-config-default
 
 
 RUN yum install epel-release -y
-RUN yum install python-pip openssl ansible python-paramiko supervisor minicondor python-devel nginx uwsgi uwsgi-plugin-python2 python-virtualenv -y
+RUN yum install -y python-pip openssl ansible python-paramiko supervisor minicondor python-devel nginx uwsgi uwsgi-plugin-python2 python-virtualenv -y
 RUN yum groupinstall "Development Tools" -y
-RUN yum install yum-plugin-priorities
-RUN yum install globus-connect-server
+RUN yum install yum-plugin-priorities -y
+RUN yum install globus-connect-server -y
 RUN yum -y install python-pip
 RUN pip install jupyterlab
 RUN pip install reana-cluster
