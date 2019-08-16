@@ -19,7 +19,7 @@ RUN pip install jupyterlab
 RUN pip install --upgrade pip
 RUN yum install java -y
 RUN yum install wget -y
-RUN http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz && \
+RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz && \
      tar xvf spark-1.6.0-bin-hadoop2.6.tgz && \
      export SPARK_HOME=$HOME/spark-2.2.1-bin-hadoop2.7 && \
      export PATH=$PATH:$SPARK_HOME/bin
