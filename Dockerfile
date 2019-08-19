@@ -26,6 +26,7 @@ RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz && \
 RUN curl -L https://dl.min.io/server/minio/release/linux-amd64/minio && \
      chmod +x minio
 
+
 RUN pip install kubernetes
 
 # VC3 portal
