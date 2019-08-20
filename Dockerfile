@@ -2,6 +2,7 @@ FROM centos:7
 
 COPY vc3.repo /etc/yum.repos.d/vc3.repo
 
+
 RUN rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor
 RUN curl -L http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo > /etc/yum.repos.d/htcondor-stable-rhel7.repo
 RUN  curl -LOs https://downloads.globus.org/toolkit/globus-connect-server/globus-connect-server-repo-latest.noarch.rpm && \
@@ -27,6 +28,8 @@ RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz && \
      export PATH=$PATH:$SPARK_HOME/bin
 RUN curl -O -L https://dl.min.io/server/minio/release/linux-amd64/minio && \
      chmod +x minio
+RUN yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+RUN yum install -y cvmfs
 
 # VC3 portal
 RUN mkdir -p /srv/www
